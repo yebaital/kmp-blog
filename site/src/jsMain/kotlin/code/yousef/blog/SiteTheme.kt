@@ -16,6 +16,9 @@ class SitePalette(
     val nearBackground: Color,
     val cobweb: Color,
     val brand: Brand,
+    val backgroundColor: Color,
+    val buttonColor: Color,
+    val buttonHoverColor: Color,
 ) {
     class Brand(
         val primary: Color = Color.rgb(0x3C83EF),
@@ -30,7 +33,10 @@ object SitePalettes {
         brand = SitePalette.Brand(
             primary = Color.rgb(0x3C83EF),
             accent = Color.rgb(0xFCBA03),
-        )
+        ),
+        backgroundColor = Colors.White,
+        buttonColor = Colors.Blue,
+        buttonHoverColor = Colors.LightBlue
     )
     val dark = SitePalette(
         nearBackground = Color.rgb(0x13171F),
@@ -38,7 +44,10 @@ object SitePalettes {
         brand = SitePalette.Brand(
             primary = Color.rgb(0x3C83EF),
             accent = Color.rgb(0xF3DB5B),
-        )
+        ),
+        backgroundColor = Color.rgb(0x424549),
+        buttonColor = Colors.Maroon,
+        buttonHoverColor = Colors.Red
     )
 }
 
