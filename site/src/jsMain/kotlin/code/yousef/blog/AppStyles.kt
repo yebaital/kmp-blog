@@ -1,7 +1,9 @@
 package code.yousef.blog
 
 import com.varabyte.kobweb.compose.css.TextAlign
+import com.varabyte.kobweb.compose.css.Transition
 import com.varabyte.kobweb.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.graphics.Color
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.silk.components.forms.ButtonStyle
@@ -13,12 +15,12 @@ import com.varabyte.kobweb.silk.init.registerStyleBase
 import com.varabyte.kobweb.silk.style.CssStyle
 import com.varabyte.kobweb.silk.style.addVariantBase
 import com.varabyte.kobweb.silk.style.base
+import com.varabyte.kobweb.silk.style.selectors.focus
+import com.varabyte.kobweb.silk.style.selectors.hover
 import com.varabyte.kobweb.silk.theme.colors.palette.color
 import com.varabyte.kobweb.silk.theme.colors.palette.toPalette
 import com.varabyte.kobweb.silk.theme.modifyStyleBase
-import org.jetbrains.compose.web.css.cssRem
-import org.jetbrains.compose.web.css.percent
-import org.jetbrains.compose.web.css.px
+import org.jetbrains.compose.web.css.*
 
 @InitSilk
 fun initSiteStyles(ctx: InitSilkContext) {
@@ -58,4 +60,31 @@ val CircleButtonVariant = ButtonStyle.addVariantBase {
 
 val UncoloredButtonVariant = ButtonStyle.addVariantBase {
     Modifier.setVariable(ButtonVars.BackgroundDefaultColor, Colors.Transparent)
+}
+
+val LoginInputStyle = CssStyle {
+    base {
+        Modifier.border(
+            width = 2.px,
+            style = LineStyle.Solid,
+            color = Colors.Transparent
+        )
+            .transition(Transition.of(property = "border", duration = 1000.ms))
+    }
+    focus {
+        Modifier.border(
+            width = 2.px,
+            style = LineStyle.Solid,
+            color = Color.rgb(0x3C83EF)
+        )
+    }
+}
+
+val LoginButtonStyle = CssStyle {
+    base {
+        Modifier.backgroundColor(Colors.Maroon)
+    }
+    hover {
+        Modifier.backgroundColor(Colors.Red)
+    }
 }
