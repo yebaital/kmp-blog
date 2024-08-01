@@ -3,7 +3,7 @@ jetbrains-compose = "1.6.2"
 kobweb = "0.18.2"
 kotlin = "1.9.23"
 mongodb-kotlin = "5.1.2"
-kotlinx-serialization = "1.7.1"
+kotlinx-serialization = "1.6.3"
 serialization-plugin = "1.9.23"
 
 [libraries]
