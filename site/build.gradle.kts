@@ -43,6 +43,8 @@ kotlin {
             // implementation(libs.silk.icons.fa)
             implementation(libs.kobwebx.markdown)
 
+            implementation(libs.kotlinx.serialization)
+
         }
 
         // Uncomment the following if you pass `includeServer = true` into the `configAsKobwebApplication` call.
