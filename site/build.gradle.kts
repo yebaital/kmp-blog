@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.jetbrains.compose)
     alias(libs.plugins.kobweb.application)
     alias(libs.plugins.kobwebx.markdown)
+    alias(libs.plugins.serialization.plugin)
 }
 
 group = "code.yousef.blog"
@@ -26,7 +27,7 @@ kobweb {
 kotlin {
     // This example is frontend only. However, for a fullstack app, you can uncomment the includeServer parameter
     // and the `jvmMain` source set below.
-    configAsKobwebApplication("blog" /*, includeServer = true*/)
+    configAsKobwebApplication("blog" , includeServer = true)
 
     sourceSets {
         commonMain.dependencies {
@@ -41,11 +42,14 @@ kotlin {
             // Uncomment the following if you want access to a large set of font-awesome icons:
             // implementation(libs.silk.icons.fa)
             implementation(libs.kobwebx.markdown)
+
         }
 
         // Uncomment the following if you pass `includeServer = true` into the `configAsKobwebApplication` call.
-//        jvmMain.dependencies {
-//            compileOnly(libs.kobweb.api) // Provided by Kobweb backend at runtime
-//        }
+        jvmMain.dependencies {
+            compileOnly(libs.kobweb.api) // Provided by Kobweb backend at runtime
+            implementation(libs.mongodb.kotlin.driver)
+            implementation(libs.kotlinx.serialization)
+        }
     }
 }
