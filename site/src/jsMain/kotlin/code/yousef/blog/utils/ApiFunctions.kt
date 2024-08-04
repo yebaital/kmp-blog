@@ -5,6 +5,7 @@ import code.yousef.blog.models.UserDTO
 import com.varabyte.kobweb.browser.api
 import kotlinx.browser.window
 import kotlinx.serialization.encodeToString
+import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 
 
@@ -14,7 +15,7 @@ suspend fun checkUserExists(user: User): UserDTO? {
             apiPath = "usercheck",
             body = Json.encodeToString(user).encodeToByteArray()
         )
-        Json.decodeFromString<UserDTO>(result.toString())
+        result?.decodeToString()?.let { Json.decodeFromString<UserDTO>(it) }
     } catch (e:Exception) {
         println(e.message)
         null

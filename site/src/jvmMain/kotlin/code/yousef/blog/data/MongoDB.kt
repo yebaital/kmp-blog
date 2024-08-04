@@ -11,10 +11,10 @@ import kotlinx.coroutines.flow.firstOrNull
 
 @InitApi
 fun initMongoDB(context: InitApiContext) {
-//    System.setProperty(
-//        "org.litote.mongo.test.mapping.service",
-//        "org.litote.kmongo.serialization.SerializationClassMappingTypeService"
-//    )
+    System.setProperty(
+        "org.litote.mongo.test.mapping.service",
+        "org.litote.kmongo.serialization.SerializationClassMappingTypeService"
+    )
     context.data.add(MongoDB(context))
 }
 

@@ -27,7 +27,7 @@ kobweb {
 kotlin {
     // This example is frontend only. However, for a fullstack app, you can uncomment the includeServer parameter
     // and the `jvmMain` source set below.
-    configAsKobwebApplication("blog" , includeServer = true)
+    configAsKobwebApplication("blog" , /*includeServer = true*/)
 
     sourceSets {
         commonMain.dependencies {
@@ -48,10 +48,10 @@ kotlin {
         }
 
         // Uncomment the following if you pass `includeServer = true` into the `configAsKobwebApplication` call.
-        jvmMain.dependencies {
-            compileOnly(libs.kobweb.api) // Provided by Kobweb backend at runtime
-            implementation(libs.mongodb.kotlin.driver)
-            implementation(libs.kotlinx.serialization)
-        }
+//        jvmMain.dependencies {
+////            compileOnly(libs.kobweb.api) // Provided by Kobweb backend at runtime
+////            implementation(libs.mongodb.kotlin.driver)
+////            implementation(libs.kotlinx.serialization)
+//        }
     }
 }

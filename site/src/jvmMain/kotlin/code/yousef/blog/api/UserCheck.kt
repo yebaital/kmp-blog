@@ -8,6 +8,7 @@ import com.varabyte.kobweb.api.ApiContext
 import com.varabyte.kobweb.api.data.getValue
 import com.varabyte.kobweb.api.http.setBodyText
 import kotlinx.serialization.encodeToString
+import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import java.nio.charset.StandardCharsets
 import java.security.MessageDigest
@@ -23,10 +24,10 @@ suspend fun userCheck(context: ApiContext) {
         if (user != null) {
             context.res.setBodyText(Json.encodeToString<UserDTO>(UserDTO(id = user.id, username = user.username)))
         } else {
-            context.res.setBodyText(Json.encodeToString(Exception("User does not exist")))
+            context.res.setBodyText(Json.encodeToString("User does not exist"))
         }
     } catch (e: Exception) {
-        context.res.setBodyText(Json.encodeToString(Exception(e.message)))
+        context.res.setBodyText(Json.encodeToString(e.message))
     }
 }
 
@@ -38,6 +39,6 @@ private fun hashPassword(password: String): String {
     for (byte in hashBytes) {
         hexString.append(String.format("%02x", byte))
     }
-
+    println(hexString.toString())
     return hexString.toString()
 }

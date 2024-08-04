@@ -42,7 +42,7 @@ import org.w3c.dom.set
 fun LoginScreen() {
     val sitePalette = ColorMode.current.toSitePalette()
 
-    var errorText by remember { mutableStateOf("") }
+    var errorText by remember { mutableStateOf(" ") }
     var usernameText by remember { mutableStateOf("") }
     var passwordText by remember { mutableStateOf("") }
 
