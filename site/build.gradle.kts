@@ -35,6 +35,7 @@ kotlin {
         }
 
         jsMain.dependencies {
+            implementation(project(":shared"))
             implementation(compose.html.core)
             implementation(libs.kobweb.core)
             implementation(libs.kobweb.silk)

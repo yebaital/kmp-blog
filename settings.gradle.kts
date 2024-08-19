@@ -15,6 +15,9 @@ pluginManagement {
         mavenCentral()
     }
 }
+plugins {
+    id("org.gradle.toolchains.foojay-resolver-convention") version "0.8.0"
+}
 
 dependencyResolutionManagement {
     repositories {
@@ -31,5 +34,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "blog"
 
-include(":site")
-include(":server")
+//rootProject.name = "kotlin-blog"
+include(":server", ":shared", ":site")
